@@ -4,11 +4,15 @@ on:
   push:
     branches: ["master", "integration-tests-assignment3", "dev", "unit-test-1"]
   pull_request:
-    branches: ["master", "dev"]
+    branches: ["master", "integration-tests-assignment3", "dev", "unit-test-1"]
 
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: backend
 
     steps:
       - name: Checkout repository
@@ -19,17 +23,11 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Create virtual environment
-        run: python -m venv venv
-
-      - name: Activate venv + install dependencies
+      - name: Install dependencies
         run: |
-          source venv/bin/activate
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install pytest pytest-cov
 
       - name: Run tests
-        run: |
-          source venv/bin/activate
-          pytest -v --cov=src
+        run: pytest -v --cov=src
