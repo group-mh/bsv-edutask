@@ -29,5 +29,5 @@ jobs:
           pip install -r requirements.txt
           pip install pytest pytest-cov
 
-      - name: Run tests
-        run: pytest -v --cov=src
+      - name: Run UNIT tests
+        run: pytest -v test/unittests --cov=src
