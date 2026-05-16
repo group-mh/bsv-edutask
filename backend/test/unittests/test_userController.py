@@ -41,30 +41,30 @@ class TestUserController:
         assert "more than one user found" in captured.out
 
 
-    # def test_no_users(self, sut, mocked_dao):
-    #     """Test Case # 3: No users found returns None"""
-    #     mocked_dao.find.return_value = []
+    def test_no_users(self, sut, mocked_dao):
+        """Test Case # 3: No users found returns None"""
+        mocked_dao.find.return_value = []
 
-    #     result = sut.get_user_by_email("test@email.com")
+        result = sut.get_user_by_email("test@email.com")
 
-    #     assert result is None
+        assert result is None
 
     def test_missing_at(self, sut):
         """Test Case # 4: missing '@' should raise ValueError."""
         with pytest.raises(ValueError):
             sut.get_user_by_email("testexample.com")
 
-    # def test_multiple_at(self, sut):
-    #     """Test Case # 5: multiple '@@' should raise ValueError."""
+    def test_multiple_at(self, sut):
+        """Test Case # 5: multiple '@@' should raise ValueError."""
 
-    #     with pytest.raises(ValueError):
-    #         sut.get_user_by_email("test@@example.com")
+        with pytest.raises(ValueError):
+            sut.get_user_by_email("test@@example.com")
 
-    # def test_missing_dot(self, sut):
-    #     """Test Case # 6: missing domain dot should raise ValueError."""
+    def test_missing_dot(self, sut):
+        """Test Case # 6: missing domain dot should raise ValueError."""
 
-    #     with pytest.raises(ValueError):
-    #         sut.get_user_by_email("test@examplecom")
+        with pytest.raises(ValueError):
+            sut.get_user_by_email("test@examplecom")
 
 
     def test_dao_exception(self, sut, mocked_dao):
