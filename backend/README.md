@@ -1,6 +1,6 @@
 # TASK List in Python
 
-[![Python CI - Backend Tests](https://github.com/group-mh/bsv-edutask/actions/workflows/runTests.yml/badge.svg)](https://github.com/group-mh/bsv-edutask/actions/workflows/runTests.yml)
+[![Python CI - Backend Tests](https://github.com/group-mh/bsv-edutask/actions/workflows/unitTestPipline.yml/badge.svg)](https://github.com/group-mh/bsv-edutask/actions/workflows/unitTestPipline.yml)
 
 ## Setup
 Once you ensured that [python](https://www.python.org/downloads/) and [pip](https://pypi.org/project/pip/) are available on your system, run
